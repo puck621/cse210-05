@@ -54,7 +54,7 @@ class Point:
         """
         return Point(self.x % other.x, self.y % other.y)
 
-    def scale(self, factor):
+    def scale(self, factor: int):
         """
         Scales the point by the provided factor.
 
@@ -72,4 +72,4 @@ class Point:
     __rmul__ = __mul__
 
     def __floordiv__(self, other):
-        return Point(self.x // other, self.y // other)
+        return Point(int(self.x // other), int(self.y // other))

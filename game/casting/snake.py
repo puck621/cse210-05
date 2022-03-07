@@ -39,7 +39,7 @@ class Snake(Actor):
             tail = self._segments[-1]
             velocity = tail.get_velocity()
             offset = velocity.reverse()
-            position = tail.get_position().add(offset)
+            position = tail.get_position() + offset
             
             segment = Actor()
             segment.set_position(position)
