@@ -25,46 +25,6 @@ class Actor:
         self.position = Point(0, 0)
         self.velocity = Point(0, 0)
 
-    def get_color(self):
-        """Gets the actor's color as a tuple of three ints (r, g, b).
-        
-        Returns:
-            Color: The actor's text color.
-        """
-        return self.color
-
-    def get_font_size(self):
-        """Gets the actor's font size.
-        
-        Returns:
-            Point: The actor's font size.
-        """
-        return self.font_size
-
-    def get_position(self):
-        """Gets the actor's position in 2d space.
-        
-        Returns:
-            Point: The actor's position in 2d space.
-        """
-        return self.position
-    
-    def get_text(self):
-        """Gets the actor's textual representation.
-        
-        Returns:
-            string: The actor's textual representation.
-        """
-        return self.text
-
-    def get_velocity(self):
-        """Gets the actor's speed and direction.
-        
-        Returns:
-            Point: The actor's speed and direction.
-        """
-        return self.velocity
-    
     def move_next(self):
         """Moves the actor to its next position according to its velocity. Will wrap the position 
         from one side of the screen to the other when it reaches the given maximum x and y values.

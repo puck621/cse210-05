@@ -71,5 +71,8 @@ class Point:
 
     __rmul__ = __mul__
 
+    def __neg__(self):
+        return Point(-self.x, -self.y)
+
     def __floordiv__(self, other):
         return Point(int(self.x // other), int(self.y // other))
