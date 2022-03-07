@@ -8,10 +8,10 @@ class Point:
         _x (integer): The horizontal distance from the origin.
         _y (integer): The vertical distance from the origin.
     """
-    
+
     def __init__(self, x, y):
         """Constructs a new Point using the specified x and y values.
-        
+
         Args:
             x (int): The specified x value.
             y (int): The specified y value.
