@@ -1,12 +1,10 @@
-import constants
 from game.casting.actor import Actor
-from game.shared.point import Point
 
 
-class Snake(Actor):
+class Cycle(Actor):
     """
     A long limbless reptile.
-
+    
     The responsibility of Snake is to move itself.
 
     Attributes:
@@ -15,7 +13,7 @@ class Snake(Actor):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self._segments = []
-        self._prepare_body()
+        # self._prepare_body()
 
     def get_segments(self):
         return self._segments
@@ -30,6 +28,7 @@ class Snake(Actor):
             previous = self._segments[i - 1]
             velocity = previous.velocity
             trailing.velocity = velocity
+        self.grow_tail(1)
 
     def get_head(self):
         return self._segments[0]
@@ -41,21 +40,12 @@ class Snake(Actor):
             offset =  - velocity
             position = tail.position + offset
 
-            segment = Actor(text="#", position=position, velocity=velocity, color=constants.GREEN)
+            segment = Actor(text="#", color=self._segments[0].color, position=position, velocity=velocity)
             self._segments.append(segment)
 
     def turn_head(self, velocity):
         self._segments[0].velocity = velocity
-
-    def _prepare_body(self):
-        x = int(constants.MAX_X / 2)
-        y = int(constants.MAX_Y / 2)
-
-        for i in range(constants.SNAKE_LENGTH):
-            position = Point(x - i * constants.CELL_SIZE, y)
-            velocity = Point(1 * constants.CELL_SIZE, 0)
-            text = "8" if i == 0 else "#"
-            color = constants.YELLOW if i == 0 else constants.GREEN
-
-            segment = Actor(position=position, velocity=velocity, text=text, color=color)
-            self._segments.append(segment)
+    
+    def prepare_body(self, position, velocity, color):
+        segment = Actor(text="8", color=color, position=position, velocity=velocity)
+        self._segments.append(segment)
