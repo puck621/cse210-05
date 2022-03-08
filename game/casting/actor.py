@@ -17,13 +17,14 @@ class Actor:
         velocity (Point): The speed and direction.
     """
 
-    def __init__(self):
+    def __init__(self, text="", font_size=constants.FONT_SIZE, color=constants.WHITE, position=Point(0, 0), velocity=Point(0, 0)):
         """Constructs a new Actor."""
-        self.text = ""
-        self.font_size = 15
-        self.color = Color(255, 255, 255)
-        self.position = Point(0, 0)
-        self.velocity = Point(0, 0)
+        self.text = text
+        self.font_size = font_size
+        self.color = color
+        self.position = position
+        self.velocity = velocity
+
 
     def move_next(self):
         """Moves the actor to its next position according to its velocity. Will wrap the position 
@@ -34,43 +35,3 @@ class Actor:
             max_y (int): The maximum y value.
         """
         self.position = (self.position + self.velocity) % Point(constants.MAX_X, constants.MAX_Y)
-
-    def set_color(self, color):
-        """Updates the color to the given one.
-
-        Args:
-            color (Color): The given color.
-        """
-        self.color = color
-
-    def set_position(self, position):
-        """Updates the position to the given one.
-
-        Args:
-            position (Point): The given position.
-        """
-        self.position = position
-
-    def set_font_size(self, font_size):
-        """Updates the font size to the given one.
-
-        Args:
-            font_size (int): The given font size.
-        """
-        self.font_size = font_size
-
-    def set_text(self, text):
-        """Updates the text to the given value.
-
-        Args:
-            text (string): The given value.
-        """
-        self.text = text
-
-    def set_velocity(self, velocity):
-        """Updates the velocity to the given one.
-
-        Args:
-            velocity (Point): The given velocity.
-        """
-        self.velocity = velocity

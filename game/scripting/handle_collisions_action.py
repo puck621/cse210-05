@@ -76,11 +76,9 @@ class HandleCollisionsAction(Action):
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)
 
-            message = Actor()
-            message.set_text("Game Over!")
-            message.set_position(position)
+            message = Actor(text="Game Over!", position=position)
             cast.add_actor("messages", message)
 
             for segment in segments:
-                segment.set_color(constants.WHITE)
-            food.set_color(constants.WHITE)
+                segment.color = constants.WHITE
+            food.color = constants.WHITE

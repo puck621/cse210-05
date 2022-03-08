@@ -15,20 +15,18 @@ class Food(Actor):
     """
     def __init__(self):
         "Constructs a new Food."
-        super().__init__()
-        self._points = 0
-        self.set_text("@")
-        self.set_color(constants.RED)
+        super().__init__(text="@", color=constants.RED)
+        self.points = 0
         self.reset()
 
     def reset(self):
         """Selects a random position and points that the food is worth."""
-        self._points = random.randint(1, 8)
+        self.points = random.randint(1, 8)
         x = random.randint(1, constants.COLUMNS - 1)
         y = random.randint(1, constants.ROWS - 1)
         position = Point(x, y)
         position = position.scale(constants.CELL_SIZE)
-        self.set_position(position)
+        self.position = position
 
     def get_points(self):
         """Gets the points the food is worth.
@@ -36,4 +34,4 @@ class Food(Actor):
         Returns:
             points (int): The points the food is worth.
         """
-        return self._points
+        return self.points
