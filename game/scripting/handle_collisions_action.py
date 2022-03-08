@@ -6,7 +6,7 @@ from game.shared.point import Point
 class HandleCollisionsAction(Action):
     """
     An update action that handles interactions between the actors.
-    
+
     The responsibility of HandleCollisionsAction is to handle the situation when the snake collides
     with the food, or the snake collides with its segments, or the game is over.
 
@@ -84,12 +84,11 @@ class HandleCollisionsAction(Action):
             y = int(constants.MAX_Y / 2)
             position = Point(x, y)
 
-            message = Actor()
+            message = Actor(text="", position=position, color=constants.RED)
             color_winner = ""
             if self._dead_player == "cycle_1":
                 color_winner = "Red"
             elif self._dead_player == "cycle_2":
                 color_winner = "Yellow"
-            message.set_text(f"Game Over! {color_winner} Wins!")
-            message.set_position(position)
+            message.text = f"Game Over! {color_winner} Wins!"
             cast.add_actor("messages", message)

@@ -1,6 +1,4 @@
-import constants
 from game.casting.actor import Actor
-from game.shared.point import Point
 
 
 class Cycle(Actor):
@@ -12,8 +10,8 @@ class Cycle(Actor):
     Attributes:
         _points (int): The number of points the food is worth.
     """
-    def __init__(self):
-        super().__init__()
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
         self._segments = []
         # self._prepare_body()
 
@@ -36,26 +34,18 @@ class Cycle(Actor):
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):
-        for i in range(number_of_segments):
+        for _ in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.velocity
             offset =  - velocity
             position = tail.position + offset
-             
-            segment = Actor()
-            segment.set_position(position)
-            segment.set_velocity(velocity)
-            segment.set_text("#")
-            segment.set_color(self._segments[0].color)
+
+            segment = Actor(text="#", color=self._segments[0].color, position=position, velocity=velocity)
             self._segments.append(segment)
 
     def turn_head(self, velocity):
-        self._segments[0].set_velocity(velocity)
+        self._segments[0].velocity = velocity
     
     def prepare_body(self, position, velocity, color):
-        segment = Actor()
-        segment.set_position(position)
-        segment.set_velocity(velocity)
-        segment.set_text("8")
-        segment.set_color(color)
+        segment = Actor(text="8", color=color, position=position, velocity=velocity)
         self._segments.append(segment)
