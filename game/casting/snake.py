@@ -6,7 +6,7 @@ from game.shared.point import Point
 class Snake(Actor):
     """
     A long limbless reptile.
-    
+
     The responsibility of Snake is to move itself.
 
     Attributes:
@@ -28,19 +28,19 @@ class Snake(Actor):
         for i in range(len(self._segments) - 1, 0, -1):
             trailing = self._segments[i]
             previous = self._segments[i - 1]
-            velocity = previous.get_velocity()
+            velocity = previous.velocity
             trailing.set_velocity(velocity)
 
     def get_head(self):
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):
-        for i in range(number_of_segments):
+        for _ in range(number_of_segments):
             tail = self._segments[-1]
-            velocity = tail.get_velocity()
-            offset = velocity.reverse()
-            position = tail.get_position().add(offset)
-            
+            velocity = tail.velocity
+            offset =  - velocity
+            position = tail.position + offset
+
             segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)
@@ -50,7 +50,7 @@ class Snake(Actor):
 
     def turn_head(self, velocity):
         self._segments[0].set_velocity(velocity)
-    
+
     def _prepare_body(self):
         x = int(constants.MAX_X / 2)
         y = int(constants.MAX_Y / 2)
@@ -60,7 +60,7 @@ class Snake(Actor):
             velocity = Point(1 * constants.CELL_SIZE, 0)
             text = "8" if i == 0 else "#"
             color = constants.YELLOW if i == 0 else constants.GREEN
-            
+
             segment = Actor()
             segment.set_position(position)
             segment.set_velocity(velocity)

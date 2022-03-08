@@ -7,3 +7,5 @@
  - [ ] Remove food related scripts
  - [ ] Make the game best out of three
  - [ ] Consider slightly reducing speed
+ - [ ] Rename Snake to Cycle.
+ - [ ] Update Comments.

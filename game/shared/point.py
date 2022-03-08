@@ -8,18 +8,18 @@ class Point:
         _x (integer): The horizontal distance from the origin.
         _y (integer): The vertical distance from the origin.
     """
-    
+
     def __init__(self, x, y):
         """Constructs a new Point using the specified x and y values.
-        
+
         Args:
             x (int): The specified x value.
             y (int): The specified y value.
         """
-        self._x = x
-        self._y = y
+        self.x = x
+        self.y = y
 
-    def add(self, other):
+    def __add__(self, other):
         """Gets a new point that is the sum of this and the given one.
 
         Args:
@@ -28,11 +28,11 @@ class Point:
         Returns:
             Point: A new Point that is the sum.
         """
-        x = self._x + other.get_x()
-        y = self._y + other.get_y()
+        x = self.x + other.x
+        y = self.y + other.y
         return Point(x, y)
 
-    def equals(self, other):
+    def __eq__(self, other):
         """Whether or not this Point is equal to the given one.
 
         Args:
@@ -41,42 +41,38 @@ class Point:
         Returns: 
             boolean: True if both x and y are equal; false if otherwise.
         """
-        return self._x == other.get_x() and self._y == other.get_y()
+        return self.x == other.x and self.y == other.y
 
-    def get_x(self):
-        """Gets the horizontal distance.
-        
-        Returns:
-            integer: The horizontal distance.
-        """
-        return self._x
+    def __mod__(self, other):
+        """Gets the remainder of this Point divided by the given one.
 
-    def get_y(self):
-        """Gets the vertical distance.
-        
-        Returns:
-            integer: The vertical distance.
-        """
-        return self._y
-
-    def reverse(self):
-        """Reverses the point by inverting both x and y values.
+        Args:
+            other (Point): The Point to compare.
 
         Returns:
-            Point: A new point that is reversed.
+            Point: A new Point that is the remainder.
         """
-        new_x = self._x * -1
-        new_y = self._y * -1
-        return Point(new_x, new_y)
+        return Point(self.x % other.x, self.y % other.y)
 
-    def scale(self, factor):
+    def scale(self, factor: int):
         """
         Scales the point by the provided factor.
 
         Args:
             factor (int): The amount to scale.
-            
+
         Returns:
             Point: A new Point that is scaled.
         """
-        return Point(self._x * factor, self._y * factor)
+        return Point(self.x * factor, self.y * factor)
+
+    def __mul__(self, other):
+        return Point(self.x * other, self.y * other)
+
+    __rmul__ = __mul__
+
+    def __neg__(self):
+        return Point(-self.x, -self.y)
+
+    def __floordiv__(self, other):
+        return Point(int(self.x // other), int(self.y // other))
