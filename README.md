@@ -39,13 +39,13 @@ Group includes:
 
  - [X] Fix cycle movement
  - [X] Add movement controls for the second cycle
- - [ ] Fix bug where pushing opposite the direction of movement instantly causes game over
  - [X] Remove food related scripts
- - [ ] Make the game best out of three
  - [X] Consider slightly reducing speed
  - [X] Rename Snake to Cycle.
- - [ ] Update Comments
+ - [X] Update Comments
+ - [X] Fix bug where pushing opposite the direction of movement instantly causes game over
+ - [ ] Make the game best out of three
  - [ ] Fix Scoring
- - [ ] Fix self collision
- - [ ] Fix collisions with other player
+ - [X] Fix self collision
+ - [X] Fix collisions with other player
 
