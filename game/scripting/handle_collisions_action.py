@@ -7,8 +7,8 @@ class HandleCollisionsAction(Action):
     """
     An update action that handles interactions between the actors.
 
-    The responsibility of HandleCollisionsAction is to handle the situation when the snake collides
-    with the food, or the snake collides with its segments, or the game is over.
+    The responsibility of HandleCollisionsAction is to handle the situation when the cycle collides
+    with the opponent's cycle trail.
 
     Attributes:
         _is_game_over (boolean): Whether or not the game is over.
@@ -89,6 +89,6 @@ class HandleCollisionsAction(Action):
             if self._dead_player == "cycle_1":
                 color_winner = "Red"
             elif self._dead_player == "cycle_2":
-                color_winner = "Yellow"
+                color_winner = "Green"
             message.text = f"Game Over! {color_winner} Wins!"
             cast.add_actor("messages", message)
