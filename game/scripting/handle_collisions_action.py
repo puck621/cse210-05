@@ -33,12 +33,18 @@ class HandleCollisionsAction(Action):
 
     
     def _handle_segment_collision(self,cast):
+        """Sets the game over flag if the cycle collides with one of its segments.
+        
+        Args:
+            cast (Cast): The cast of Actors in the game.
+        """
+
         cycle_1 = cast.get_first_actor("cycle_1")
-        cycle_1_head = cycle_1.get_head()
+        cycle_1_head = cycle_1.get_segments()[0]
         cycle_1_segments = cycle_1.get_segments()[1:]
 
         cycle_2 = cast.get_first_actor("cycle_2")
-        cycle_2_head = cycle_2.get_head()
+        cycle_2_head = cycle_2.get_segments()[0]
         cycle_2_segments = cycle_2.get_segments()[1:]
 
         for segment in cycle_1_segments:
@@ -52,12 +58,17 @@ class HandleCollisionsAction(Action):
                 self._dead_player = "cycle_2"
 
     def _handle_cycle_collision(self, cast):
+        """Sets the game over flag if the cycle collides with the other cycle.
+        
+        Args:
+            cast (Cast): The cast of Actors in the game.
+        """
         cycle_1 = cast.get_first_actor("cycle_1")
-        cycle_1_head = cycle_1.get_head()
+        cycle_1_head = cycle_1.get_segments()[0]
         cycle_1_segments = cycle_1.get_segments()[1:]
 
         cycle_2 = cast.get_first_actor("cycle_2")
-        cycle_2_head = cycle_2.get_head()
+        cycle_2_head = cycle_2.get_segments()[0]
         cycle_2_segments = cycle_2.get_segments()[1:]
 
         for segment in cycle_1_segments:
