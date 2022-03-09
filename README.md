@@ -1,11 +1,5 @@
 Cycle
 
-The best rides are the ones where you
-bite off much more than you can chew,
-and live through it.
-
-- Doug Bradbury -
-
 Overview
 
 Cycle is a game where the players try to cut each other off using cycles that leave a trail behind them.
@@ -36,18 +30,22 @@ The program must remain true to game play described in the overview.
 Group includes:  
  - Finley Grant Jarvis: 
  - Lowry Williams: 
- - Kelsey Scott: 
+ - Kelsey Scott:
  - Emmett Hart: 
 
 
 # cse210-05
 
 
- - [ ] Fix cycle movement
+ - [X] Fix cycle movement
  - [X] Add movement controls for the second cycle
  - [ ] Fix bug where pushing opposite the direction of movement instantly causes game over
- - [ ] Remove food related scripts
+ - [X] Remove food related scripts
  - [ ] Make the game best out of three
- - [ ] Consider slightly reducing speed
+ - [X] Consider slightly reducing speed
  - [X] Rename Snake to Cycle.
- - [ ] Update Comments.
+ - [ ] Update Comments
+ - [ ] Fix Scoring
+ - [ ] Fix self collision
+ - [ ] Fix collisions with other player
+
