@@ -3,11 +3,10 @@ from game.casting.actor import Actor
 
 class Cycle(Actor):
     """
-    A sweet ride on two wheels.
-    
     The responsibility of Cycle is to move itself.
 
     Attributes:
+      segments: length of the cycle
         
     """
     def __init__(self, *args, **kwargs):
@@ -16,6 +15,7 @@ class Cycle(Actor):
         # self._prepare_body()
 
     def get_segments(self):
+        """Fetches the number of segments of a cycle """
         return self._segments
 
     def move_next(self):
@@ -34,6 +34,7 @@ class Cycle(Actor):
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):
+        """Adds to the length of the cycle at a steady rate"""
         for _ in range(number_of_segments):
             tail = self._segments[-1]
             velocity = tail.velocity
@@ -44,8 +45,10 @@ class Cycle(Actor):
             self._segments.append(segment)
 
     def turn_head(self, velocity):
+        """Changes direction a cycle is moving by change velocity"""
         self._segments[0].velocity = velocity
     
     def prepare_body(self, position, velocity, color):
+        """Provides all information about cycle for other functions"""
         segment = Actor(text="8", color=color, position=position, velocity=velocity)
         self._segments.append(segment)
