@@ -28,24 +28,7 @@ The program must have at least 16 classes.
 The program must remain true to game play described in the overview.
 
 Group includes:  
- - Finley Grant Jarvis: 
- - Lowry Williams: 
- - Kelsey Scott:
- - Emmett Hart: 
-
-
-# cse210-05
-
-
- - [X] Fix cycle movement
- - [X] Add movement controls for the second cycle
- - [X] Remove food related scripts
- - [X] Consider slightly reducing speed
- - [X] Rename Snake to Cycle.
- - [X] Update Comments
- - [X] Fix bug where pushing opposite the direction of movement instantly causes game over
- - [ ] Make the game best out of three
- - [ ] Fix Scoring
- - [X] Fix self collision
- - [X] Fix collisions with other player
-
+ - Finley Grant Jarvis: Debugged
+ - Lowry Williams: Wrote comments and helped debug
+ - Kelsey Scott: Wrote cycle code and made adjustments to snake program
+ - Emmett Hart: Debugged
