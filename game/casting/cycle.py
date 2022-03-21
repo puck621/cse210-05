@@ -3,13 +3,14 @@ from game.casting.actor import Actor
 
 class Cycle(Actor):
     """
-    The responsibility of Cycle is to move itself.
+    The responsibility of Cycle is to move itself. Inherits from the Actor class.
 
     Attributes:
       segments: length of the cycle
         
     """
     def __init__(self, *args, **kwargs):
+        """Constructs a new cycle"""
         super().__init__(*args, **kwargs)
         self._segments = []
         # self._prepare_body()
@@ -19,10 +20,10 @@ class Cycle(Actor):
         return self._segments
 
     def move_next(self):
-        # move all segments
+        """move all segments"""
         for segment in self._segments:
             segment.move_next()
-        # update velocities
+        """update velocities"""
         for i in range(len(self._segments) - 1, 0, -1):
             trailing = self._segments[i]
             previous = self._segments[i - 1]
@@ -31,6 +32,7 @@ class Cycle(Actor):
         self.grow_tail(1)
 
     def get_head(self):
+        """creates the front of the cycle"""
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):

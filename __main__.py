@@ -16,7 +16,7 @@ from game.shared.point import Point
 
 def main():
     
-    # create the cast
+    """create the cast"""
     cast = Cast()
     cast.add_actor("cycle_1", Cycle())
     cycle_1 = cast.get_first_actor("cycle_1")
@@ -25,7 +25,7 @@ def main():
     cycle_2 = cast.get_first_actor("cycle_2")
     cycle_2.prepare_body(Point(845, 545), Point(constants.CELL_SIZE, 0), constants.RED)
 
-    # start the game
+    """start the game"""
     keyboard_service = KeyboardService()
     video_service = VideoService()
 

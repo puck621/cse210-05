@@ -30,38 +30,38 @@ class ControlActorsAction(Action):
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
-        # left
+        """moves cycle 1 left"""
         if self._keyboard_service.is_key_down('a'):
             self._direction = Point(-constants.CELL_SIZE, 0)
         
-        # right
+        """Moves cycle 1 right"""
         if self._keyboard_service.is_key_down('d'):
             self._direction = Point(constants.CELL_SIZE, 0)
         
-        # up
+        """Moves cycle 1 up"""
         if self._keyboard_service.is_key_down('w'):
             self._direction = Point(0, -constants.CELL_SIZE)
         
-        # down
+        """Moves cycle 1 down"""
         if self._keyboard_service.is_key_down('s'):
             self._direction = Point(0, constants.CELL_SIZE)
         
         cycle_1 = cast.get_first_actor("cycle_1")
         cycle_1.turn_head(self._direction)
 
-        # left
+        """ Moves cycle 2 left"""
         if self._keyboard_service.is_key_down('j'):
             self._direction_2 = Point(-constants.CELL_SIZE, 0)
         
-        # right
+        """Moves cycle 2 right"""
         if self._keyboard_service.is_key_down('l'):
             self._direction_2 = Point(constants.CELL_SIZE, 0)
 
-        # up
+        """Moves cycle 2 up"""
         if self._keyboard_service.is_key_down('i'):
             self._direction_2 = Point(0, -constants.CELL_SIZE)
 
-        # down
+        """Moves cycle 2 down"""
         if self._keyboard_service.is_key_down('k'):
             self._direction_2 = Point(0, constants.CELL_SIZE)
 

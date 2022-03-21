@@ -1,5 +1,7 @@
 from game.shared.color import Color
-
+"""These values are constant throughout the game.  They control the size of the GUI, 
+the colors of the cycles and their trails, the speed of the frame rate and beginning 
+velocity of the cycles, and the font."""
 
 COLUMNS = 40
 ROWS = 20
